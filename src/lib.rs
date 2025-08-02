@@ -9,7 +9,7 @@
 //! - `from_eight_bool_to_eight_bit`: 8 자리 `bool` Array 을 8 자리 bit Array 으로 변환
 //! - `from_eight_bit_to_eight_bool`: 8 자리 bit Array 를 8 자리 `bool` Array 으로 변환
 //! - `from_eight_bit_to_one_u8_int`: 8 자리 bit Array를 1개의 `u8` int로 변환
-//! - `from_u8_int_to_eight_bit`: 1개의 `u8` int를 8 자리 bit Array로 변환
+//! - `from_one_u8_int_to_eight_bit`: 1개의 `u8` int를 8 자리 bit Array로 변환
 
 /// `bool` 형식으로 된 여덟 자리 Array를 `u8` 형식으로 된 여덟 자리 Array로 변경하는 함수
 ///
@@ -60,11 +60,11 @@ pub fn from_eight_bit_to_one_u8_int(bits: [u8; 8]) -> u8 {
 ///
 /// 다음과 같이 작동합니다.
 ///  ```rust
-///     use conv_bit::from_u8_int_to_eight_bit;
-///     let result = from_u8_int_to_eight_bit(5);
+///     use conv_bit::from_one_u8_int_to_eight_bit;
+///     let result = from_one_u8_int_to_eight_bit(5);
 ///     assert_eq!(result, [0, 0, 0, 0, 0, 1, 0, 1]);
 /// ```
-pub fn from_u8_int_to_eight_bit(n: u8) -> [u8; 8] {
+pub fn from_one_u8_int_to_eight_bit(n: u8) -> [u8; 8] {
     let mut result = [0u8; 8];
     for i in 0..8 {
         if (n >> (7 - i)) & 1 == 1 {

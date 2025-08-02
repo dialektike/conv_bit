@@ -47,29 +47,29 @@ fn _from_eight_bit_to_one_u8_int() {
 }
 
 #[test]
-fn _from_u8_int_to_eight_bit() {
-    let result = from_u8_int_to_eight_bit(0);
+fn _from_one_u8_int_to_eight_bit() {
+    let result = from_one_u8_int_to_eight_bit(0);
     let temp_0 = [false, false, false, false, false, false, false, false];
     assert_eq!(result, from_eight_bool_to_eight_bit(temp_0));
-    let result = from_u8_int_to_eight_bit(1);
+    let result = from_one_u8_int_to_eight_bit(1);
     let temp_1 = [false, false, false, false, false, false, false, true];
     assert_eq!(result, from_eight_bool_to_eight_bit(temp_1));
-    let result = from_u8_int_to_eight_bit(2);
+    let result = from_one_u8_int_to_eight_bit(2);
     let temp_1 = [false, false, false, false, false, false, true, false];
     assert_eq!(result, from_eight_bool_to_eight_bit(temp_1));
-    let result = from_u8_int_to_eight_bit(3);
+    let result = from_one_u8_int_to_eight_bit(3);
     let temp_1 = [false, false, false, false, false, false, true, true];
     assert_eq!(result, from_eight_bool_to_eight_bit(temp_1));
-    let result = from_u8_int_to_eight_bit(4);
+    let result = from_one_u8_int_to_eight_bit(4);
     let temp_1 = [false, false, false, false, false, true, false, false];
     assert_eq!(result, from_eight_bool_to_eight_bit(temp_1));
-    let result = from_u8_int_to_eight_bit(79);
+    let result = from_one_u8_int_to_eight_bit(79);
     let temp_1 = [false, true, false, false, true, true, true, true];
     assert_eq!(result, from_eight_bool_to_eight_bit(temp_1));
-    let result = from_u8_int_to_eight_bit(100);
+    let result = from_one_u8_int_to_eight_bit(100);
     let temp_1 = [false, true, true, false, false, true, false, false];
     assert_eq!(result, from_eight_bool_to_eight_bit(temp_1));
-    let result = from_u8_int_to_eight_bit(255);
+    let result = from_one_u8_int_to_eight_bit(255);
     let temp_1 = [true, true, true, true, true, true, true, true];
     assert_eq!(result, from_eight_bool_to_eight_bit(temp_1));
 }
