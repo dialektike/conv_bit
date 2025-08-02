@@ -73,3 +73,13 @@ fn _from_u8_int_to_eight_bit() {
     let temp_1 = [true, true, true, true, true, true, true, true];
     assert_eq!(result, from_eight_bool_to_eight_bit(temp_1));
 }
+
+#[test]
+fn _from_eight_bit_to_eight_bool() {
+    let temp_a: [u8; 8] = [0, 1, 1, 0, 1, 0, 0, 1];
+    let result = from_eight_bit_to_eight_bool(temp_a);
+    assert_eq!(result, [false, true, true, false, true, false, false, true]);
+    let temp_b: [u8; 8] = [1, 1, 1, 1, 1, 1, 1, 1];
+    let result_b = from_eight_bit_to_eight_bool(temp_b);
+    assert_eq!(result_b, [true, true, true, true, true, true, true, true]);
+}
