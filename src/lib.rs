@@ -16,6 +16,7 @@
 /// 이 함수는 `bool` 값을 `u8` 값으로 변환합니다. `true`는 `1`, `false`는 `0`으로 변환됩니다.
 /// 다음과 같이 작동합니다.
 ///  ```rust
+///     use conv_bit::from_eight_bool_to_eight_bit;
 ///     let temp_a = [false, true, true, false, true, false, false, true];
 ///     let test = from_eight_bool_to_eight_bit(temp_a);
 ///     assert_eq!(test, [0, 1, 1, 0, 1, 0, 0, 1]);
@@ -28,9 +29,10 @@ pub fn from_eight_bool_to_eight_bit(input: [bool; 8]) -> [u8; 8] {
 ///
 /// 다음과 같이 작동합니다.
 ///  ```rust
+///     use conv_bit::from_eight_bit_to_eight_bool;
 ///     let temp_a = [0, 1, 1, 0, 1, 0, 0, 1];
 ///     let test = from_eight_bit_to_eight_bool(temp_a);
-///      assert_eq!(test, [false, true, true, false, true, false, false, true]);
+///     assert_eq!(test, [false, true, true, false, true, false, false, true]);
 /// ```
 pub fn from_eight_bit_to_eight_bool(input: [u8; 8]) -> [bool; 8] {
     input.map(|b| b == 1)
@@ -40,8 +42,10 @@ pub fn from_eight_bit_to_eight_bool(input: [u8; 8]) -> [bool; 8] {
 ///
 /// 다음과 같이 작동합니다.
 ///  ```rust
+///     use conv_bit::from_eight_bit_to_one_u8_int;
 ///     let temp_a = [0, 1, 1, 0, 1, 0, 0, 1];
 ///     let test = from_eight_bit_to_one_u8_int(temp_a);
+///     assert_eq!(test, 105);
 /// ```
 pub fn from_eight_bit_to_one_u8_int(bits: [u8; 8]) -> u8 {
     let mut result: u8 = 0;
@@ -52,10 +56,11 @@ pub fn from_eight_bit_to_one_u8_int(bits: [u8; 8]) -> u8 {
     result
 }
 
-///  `u8` 형식인 `int`를 `bool`로 된 여덟 자리 리스트로 변경하는 함수
+///  `u8` 형식인 `int`를 `u8`로 된 여덟 자리 리스트로 변경하는 함수
 ///
 /// 다음과 같이 작동합니다.
 ///  ```rust
+///     use conv_bit::from_u8_int_to_eight_bit;
 ///     let result = from_u8_int_to_eight_bit(5);
 ///     assert_eq!(result, [0, 0, 0, 0, 0, 1, 0, 1]);
 /// ```
