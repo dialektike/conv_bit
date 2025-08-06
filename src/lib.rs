@@ -1,11 +1,11 @@
 //! # 변환(conv) 모듈
 //!
 //! 이 모듈에는 비트와 숫자를 변환하는 함수가 들어 있습니다. 이 모듈 안에 들어 있는 코드는
-//! 기본적으로 편의상 최적화를 실행하지 못했습니다. 기능을 구현하는데 급급한 면이 있습니다. 
+//! 기본적으로 편의상 최적화를 실행하지 못했습니다. 기능을 구현하는데 급급한 면이 있습니다.
 //! 참고하세요.
 //!
 //! ## 목록
-//! 
+//!
 //! - `from_eight_bool_to_eight_bit`: 8 자리 `bool` Array 을 8 자리 bit Array 으로 변환
 //! - `from_eight_bit_to_eight_bool`: 8 자리 bit Array 를 8 자리 `bool` Array 으로 변환
 //! - `from_eight_bit_to_one_u8_int`: 8 자리 bit Array를 1개의 `u8` int로 변환
@@ -21,6 +21,9 @@
 ///     let test = from_eight_bool_to_eight_bit(temp_a);
 ///     assert_eq!(test, [0, 1, 1, 0, 1, 0, 0, 1]);
 /// ```
+///
+pub mod number;
+
 pub fn from_eight_bool_to_eight_bit(input: [bool; 8]) -> [u8; 8] {
     input.map(|b| b as u8)
 }
