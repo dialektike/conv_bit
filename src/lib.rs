@@ -1,8 +1,8 @@
 //! # 변환(conv) 모듈
 //!
 //! 이 모듈에는 비트와 숫자를 변환하는 함수가 들어 있습니다. 이 모듈 안에 들어 있는 코드는
-//! 기본적으로 편의상 최적화를 실행하지 못했습니다. 기능을 구현하는데 급급한 면이 있습니다.
-//! 참고하세요.
+//! 기본적으로 편의상 최적화를 실행하지 못했습니다. 컴퓨터 구조를 공부하기 위해서 작성한
+//! 교육 목적의 코드이기 때문에 최적화는 생각하지 못하고 있습니다. 참고하세요.
 //!
 //! ## 목록
 //!
@@ -10,6 +10,8 @@
 //! - `from_eight_bit_to_eight_bool`: 8 자리 bit Array 를 8 자리 `bool` Array 으로 변환
 //! - `from_eight_bit_to_one_u8_int`: 8 자리 bit Array를 1개의 `u8` int로 변환
 //! - `from_one_u8_int_to_eight_bit`: 1개의 `u8` int를 8 자리 bit Array로 변환
+
+pub mod number;
 
 /// `bool` 형식으로 된 여덟 자리 Array를 `u8` 형식으로 된 여덟 자리 Array로 변경하는 함수
 ///
@@ -22,8 +24,6 @@
 ///     assert_eq!(test, [0, 1, 1, 0, 1, 0, 0, 1]);
 /// ```
 ///
-pub mod number;
-
 pub fn from_eight_bool_to_eight_bit(input: [bool; 8]) -> [u8; 8] {
     input.map(|b| b as u8)
 }
@@ -69,11 +69,11 @@ pub fn from_eight_bit_to_one_u8_int(bits: [u8; 8]) -> u8 {
 /// ```
 pub fn from_one_u8_int_to_eight_bit(n: u8) -> [u8; 8] {
     let mut result = [0u8; 8];
-    for i in 0..8 {
+    for (i, item) in result.iter_mut().enumerate() {
         if (n >> (7 - i)) & 1 == 1 {
-            result[i] = 1;
+            *item = 1; // 요소 자체를 직접 수정
         } else {
-            result[i] = 0;
+            *item = 0;
         }
     }
     result
