@@ -8,6 +8,6 @@ license = "GPL-3.0-or-later"
 repository = "https://github.com/example/conv_bit"
 readme = "README.md"
 keywords = ["binary", "bit", "conversion", "number"]
-categories = ["command-line-utilities", "computer-science", "encoding"]
+categories = ["command-line-utilities", "algorithms", "encoding"]
 
 [dependencies]
