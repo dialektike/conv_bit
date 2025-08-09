@@ -1,6 +1,13 @@
 [package]
 name = "conv_bit"
 version = "0.1.0"
-edition = "2024"
+edition = "2021"
+description = "컴퓨터 구조 학습을 위한 숫자 진법 변환 라이브러리"
+authors = ["your-name <your-email@example.com>"]
+license = "GPL-3.0-or-later"
+repository = "https://github.com/example/conv_bit"
+readme = "README.md"
+keywords = ["진법", "변환", "2진수", "10진수", "8진수", "16진수", "비트"]
+categories = ["command-line-utilities", "computer-science", "encoding"]
 
 [dependencies]
