@@ -28,7 +28,7 @@ pub fn from_eight_bool_to_eight_bit(input: [bool; 8]) -> [u8; 8] {
     input.map(|b| b as u8)
 }
 
-///  `u8` 형식으로 된 여덟 자리 Array 를 bool` 형식으로 된 여덟 자리 Array로 변경하는 함수
+///  `u8` 형식으로 된 여덟 자리 Array 를 `bool` 형식으로 된 여덟 자리 Array로 변경하는 함수
 ///
 /// 다음과 같이 작동합니다.
 ///  ```rust

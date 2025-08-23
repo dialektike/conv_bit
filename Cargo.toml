@@ -1,6 +1,6 @@
 [package]
 name = "conv_bit"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2024"
 description = "컴퓨터 구조 학습을 위한 숫자 진법 변환 라이브러리"
 authors = ["Jae-Hwan Chung <dialektike@gmail.com>"]
