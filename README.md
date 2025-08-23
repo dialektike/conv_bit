@@ -14,7 +14,7 @@
 
 ```toml
 [dependencies]
-conv_bit = "0.1.0"
+conv_bit = "0.2.0"
 ```
 
 ## 사용법
