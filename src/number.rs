@@ -25,28 +25,31 @@ impl Number {
         }
     }
 
-    /// 숫자를 4자리마다 '_'로 구분된 2진수 문자열로 변환하는 private 헬퍼 함수입니다.
+    /// 숫자를 8비트 단위로 패딩하고, 4자리마다 '_'로 구분된 2진수 문자열로 변환합니다.
     fn format_binary_with_separator(n: u32) -> String {
         let binary_string = format!("{:b}", n);
-        // 문자열 길이가 4 이하이면 구분 기호를 넣을 필요가 없습니다.
-        if binary_string.len() <= 4 {
-            return binary_string;
-        }
+        let len = binary_string.len();
 
-        let mut result = String::new();
-        // 문자열을 뒤집어서 4자리씩 끊기 쉽게 만듭니다.
-        let chars: Vec<char> = binary_string.chars().rev().collect();
+        // 비트 길이에 따라 패딩할 길이를 결정합니다 (8, 16, 24, 32).
+        let padded_len = match len {
+            0..=8 => 8,
+            9..=16 => 16,
+            17..=24 => 24,
+            _ => 32,
+        };
 
-        for (i, c) in chars.iter().enumerate() {
-            // 4의 배수 인덱스이고, 첫 문자가 아닐 때 '_'를 추가합니다.
+        // 왼쪽을 '0'으로 채워서 최종 길이에 맞춥니다.
+        let padded_binary = format!("{:0>width$}", binary_string, width = padded_len);
+
+        // 4자리마다 '_' 구분 기호를 삽입합니다.
+        let mut result = String::with_capacity(padded_len + (padded_len / 4) - 1);
+        for (i, c) in padded_binary.chars().enumerate() {
             if i > 0 && i % 4 == 0 {
                 result.push('_');
             }
-            result.push(*c);
+            result.push(c);
         }
-
-        // 다시 뒤집어서 최종 결과를 반환합니다.
-        result.chars().rev().collect()
+        result
     }
 }
 
