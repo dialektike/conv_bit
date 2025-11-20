@@ -70,11 +70,7 @@ pub fn from_eight_bit_to_one_u8_int(bits: [u8; 8]) -> u8 {
 pub fn from_one_u8_int_to_eight_bit(n: u8) -> [u8; 8] {
     let mut result = [0u8; 8];
     for (i, item) in result.iter_mut().enumerate() {
-        if (n >> (7 - i)) & 1 == 1 {
-            *item = 1; // 요소 자체를 직접 수정
-        } else {
-            *item = 0;
-        }
+        *item = (n >> (7 - i)) & 1;
     }
     result
 }
